@@ -1,0 +1,15 @@
+[2011-06-05 11:47:18] request.ERROR: No route found for "GET /css/reset.css" 
+[2011-06-05 11:47:18] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /css/reset.css" (uncaught exception) at C:\xampp\htdocs\dobervich\vendor\symfony\src\Symfony\Bundle\FrameworkBundle\RequestListener.php line 115 
+[2011-06-05 11:47:18] request.INFO: Using controller "Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction" 
+[2011-06-05 11:48:26] request.ERROR: No route found for "GET /css/reset.css" 
+[2011-06-05 11:48:26] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /css/reset.css" (uncaught exception) at C:\xampp\htdocs\dobervich\vendor\symfony\src\Symfony\Bundle\FrameworkBundle\RequestListener.php line 115 
+[2011-06-05 11:48:26] request.INFO: Using controller "Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction" 
+[2011-06-05 11:49:40] request.ERROR: No route found for "GET /css/reset.css" 
+[2011-06-05 11:49:40] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /css/reset.css" (uncaught exception) at C:\xampp\htdocs\dobervich\vendor\symfony\src\Symfony\Bundle\FrameworkBundle\RequestListener.php line 115 
+[2011-06-05 11:49:40] request.INFO: Using controller "Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction" 
+[2011-06-05 18:29:37] request.ERROR: No route found for "GET /bundles/blog/css/blog.css" 
+[2011-06-05 18:29:37] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /bundles/blog/css/blog.css" (uncaught exception) at C:\xampp\htdocs\dobervich\vendor\symfony\src\Symfony\Bundle\FrameworkBundle\RequestListener.php line 115 
+[2011-06-05 18:29:37] request.INFO: Using controller "Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction" 
+[2011-06-05 18:29:52] request.ERROR: No route found for "GET /bundles/blog/css/blog.css" 
+[2011-06-05 18:29:52] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /bundles/blog/css/blog.css" (uncaught exception) at C:\xampp\htdocs\dobervich\vendor\symfony\src\Symfony\Bundle\FrameworkBundle\RequestListener.php line 115 
+[2011-06-05 18:29:52] request.INFO: Using controller "Symfony\Bundle\FrameworkBundle\Controller\ExceptionController::showAction" 

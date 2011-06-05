@@ -1,0 +1,7 @@
+show_page:
+    pattern:  /{page}
+    defaults: { _controller: CompanyBlogBundle:Pages:show }
+
+homepage:
+    pattern:  /
+    defaults: { _controller: CompanyBlogBundle:Blog:index }

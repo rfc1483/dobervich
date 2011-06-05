@@ -1,0 +1,40 @@
+{% extends "::base.html.twig" %}
+ 
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/companyblog/css/blog.css') }}" media="screen" />
+{% endblock %}
+ 
+{% block body %}
+    <div id="container">
+        <header class="clearfix">
+            <h1>
+                symfony2 Blog Tutorial
+            </h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ path('show_page', { 'page' : 'about' }) }}">
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="clearfix">
+            <div id="content">
+                {% block content %}No content.{% endblock %}
+            </div>
+            <div id="sidebar">
+                {% block sidebar %}{% endblock %}
+            </div>
+        </div>
+        <footer class="clearfix">
+            <p class="symfony2">
+                Powered by <a href="http://www.symfony.com" target="_blank">Symfony</a>
+            </p>
+            <p class="copy">
+                &copy; Company 2011
+            </p>
+        </footer>
+    </div>
+{% endblock %}

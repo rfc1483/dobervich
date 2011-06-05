@@ -1,0 +1,86 @@
+<?php
+
+namespace Company\BlogBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="Company\BlogBundle\Repository\PostsRepository")
+ * @ORM\HasLifecycleCallbacks
+ */
+class Posts
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer", name="post_id")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * 
+     * @var integer $postId
+     */
+    protected $postId;
+    
+    /**
+     * @ORM\Column(type="string", length="255")
+     * 
+     * @var string $title
+     */
+    protected $title;
+    
+    /**
+     * @ORM\Column(type="string", length="255")
+     * 
+     * @var string $slug
+     */
+    protected $slug;
+    
+    /**
+     * @ORM\Column(type="text")
+     * 
+     * @var string $content
+     */
+    protected $content;
+    
+    /**
+     * @ORM\Column(type="datetime", name="created_at")
+     * 
+     * @var DateTime $createdAt
+     */
+    protected $createdAt;
+    
+    /**
+     * @ORM\Column(type="datetime", name="updated_at", nullable="true")
+     * 
+     * @var DateTime $updatedAt
+     */
+    protected $updatedAt;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Categories")
+     * @ORM\JoinColumn(name="categories_category_id", referencedColumnName="category_id")
+     * 
+     * @var Category $category
+     */
+    protected $category;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Users", inversedBy="posts")
+     * @ORM\JoinColumn(name="users_user_id", referencedColumnName="user_id")
+     * 
+     * @var User $user
+     */
+    protected $user;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Tags")
+     * @ORM\JoinTable(name="posts_tags",
+     *     joinColumns={@ORM\JoinColumn(name="posts_post_id", referencedColumnName="post_id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="tags_tag_id", referencedColumnName="tag_id")}
+     * )
+     * 
+     * @var ArrayCollection $tags
+     */
+    protected $tags;
+    
+ 
+}
