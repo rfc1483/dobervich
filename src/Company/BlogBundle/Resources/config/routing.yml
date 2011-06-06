@@ -1,7 +1,21 @@
+security_login:
+    pattern:  /login
+    defaults: { _controller: CompanyBlogBundle:Security:login }
+
+security_check:
+    pattern:  /login_check
+
+security_logout:
+    pattern:  /logout
+
+admin_home:
+    pattern:  /admin/
+    defaults: { _controller: CompanyBlogBundle:Admin:index }
+    
 show_page:
     pattern:  /{page}
     defaults: { _controller: CompanyBlogBundle:Pages:show }
 
 homepage:
     pattern:  /
-    defaults: { _controller: CompanyBlogBundle:Blog:index }
+    defaults: { _controller: CompanyBlogBundle:Blog:index }   

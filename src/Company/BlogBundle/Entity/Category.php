@@ -11,29 +11,29 @@ class Category {
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer", name="category_id")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      * 
-     * @var integer $categoryId
+     * @var integer $id
      */
-    protected $categoryId;
+    private $id;
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string")
      * 
      * @var string $name
      */
-    protected $name;
+    private $name;
     /**
      * @ORM\Column(type="datetime", name="created_at")
      * 
      * @var DateTime $createdAt
      */
-    protected $createdAt;
+    private $createdAt;
 
     /**
      * Gets the id.
      * 
-     * @return integer The id
+     * @return string The id
      */
     public function getId() {
         return $this->id;

@@ -13,6 +13,10 @@ use Symfony\Component\Routing\Exception\RouteNotFoundException;
 class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerator
 {
     static private $declaredRouteNames = array(
+       'security_login' => true,
+       'security_check' => true,
+       'security_logout' => true,
+       'admin_home' => true,
        'show_page' => true,
        'homepage' => true,
        '_welcome' => true,
@@ -56,6 +60,26 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
         list($variables, $defaults, $requirements, $tokens) = $this->{'get'.$escapedName.'RouteInfo'}();
 
         return $this->doGenerate($variables, $defaults, $requirements, $tokens, $parameters, $name, $absolute);
+    }
+
+    private function getsecurity_loginRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Company\\BlogBundle\\Controller\\SecurityController::loginAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/login',  ),));
+    }
+
+    private function getsecurity_checkRouteInfo()
+    {
+        return array(array (), array (), array (), array (  0 =>   array (    0 => 'text',    1 => '/login_check',  ),));
+    }
+
+    private function getsecurity_logoutRouteInfo()
+    {
+        return array(array (), array (), array (), array (  0 =>   array (    0 => 'text',    1 => '/logout',  ),));
+    }
+
+    private function getadmin_homeRouteInfo()
+    {
+        return array(array (), array (  '_controller' => 'Company\\BlogBundle\\Controller\\AdminController::indexAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/admin/',  ),));
     }
 
     private function getshow_pageRouteInfo()

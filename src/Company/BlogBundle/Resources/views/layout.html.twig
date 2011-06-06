@@ -17,6 +17,13 @@
                             About
                         </a>
                     </li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li>
+                            <a href="{{ path('security_logout') }}">
+                                Logout
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
         </header>

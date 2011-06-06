@@ -24,6 +24,29 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
     {
         $allow = array();
 
+        // security_login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Company\\BlogBundle\\Controller\\SecurityController::loginAction',  '_route' => 'security_login',);
+        }
+
+        // security_check
+        if ($pathinfo === '/login_check') {
+            return array('_route' => 'security_check');
+        }
+
+        // security_logout
+        if ($pathinfo === '/logout') {
+            return array('_route' => 'security_logout');
+        }
+
+        // admin_home
+        if (rtrim($pathinfo, '/') === '/admin') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'admin_home');
+            }
+            return array (  '_controller' => 'Company\\BlogBundle\\Controller\\AdminController::indexAction',  '_route' => 'admin_home',);
+        }
+
         // show_page
         if (preg_match('#^/(?P<page>[^/]+?)$#x', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Company\\BlogBundle\\Controller\\PagesController::showAction',)), array('_route' => 'show_page'));

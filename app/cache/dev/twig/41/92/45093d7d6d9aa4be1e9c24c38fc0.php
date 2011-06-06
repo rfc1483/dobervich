@@ -43,13 +43,13 @@ class __TwigTemplate_419245093d7d6d9aa4be1e9c24c38fc0 extends Twig_Template
 ";
     }
 
-    // line 25
+    // line 32
     public function block_content($context, array $blocks = array())
     {
         echo "No content.";
     }
 
-    // line 28
+    // line 35
     public function block_sidebar($context, array $blocks = array())
     {
     }
@@ -73,21 +73,36 @@ class __TwigTemplate_419245093d7d6d9aa4be1e9c24c38fc0 extends Twig_Template
                             About
                         </a>
                     </li>
-                </ul>
+                    ";
+        // line 20
+        if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_FULLY")) {
+            // line 21
+            echo "                        <li>
+                            <a href=\"";
+            // line 22
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("security_logout"), "html");
+            echo "\">
+                                Logout
+                            </a>
+                        </li>
+                    ";
+        }
+        // line 27
+        echo "                </ul>
             </nav>
         </header>
         <div class=\"clearfix\">
             <div id=\"content\">
                 ";
-        // line 25
+        // line 32
         $this->displayBlock('content', $context, $blocks);
-        // line 26
+        // line 33
         echo "            </div>
             <div id=\"sidebar\">
                 ";
-        // line 28
+        // line 35
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 29
+        // line 36
         echo "            </div>
         </div>
         <footer class=\"clearfix\">

@@ -13,71 +13,75 @@ class Post {
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer", name="post_id")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      * 
-     * @var integer $postId
+     * @var integer $id
      */
-    protected $postId;
+    private $id;
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string")
      * 
      * @var string $title
      */
-    protected $title;
+    private $title;
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string")
      * 
      * @var string $slug
      */
-    protected $slug;
+    private $slug;
     /**
      * @ORM\Column(type="text")
      * 
      * @var string $content
      */
-    protected $content;
+    private $content;
     /**
      * @ORM\Column(type="datetime", name="created_at")
      * 
      * @var DateTime $createdAt
      */
-    protected $createdAt;
+    private $createdAt;
     /**
      * @ORM\Column(type="datetime", name="updated_at", nullable="true")
      * 
      * @var DateTime $updatedAt
      */
-    protected $updatedAt;
+    private $updatedAt;
     /**
-     * @ORM\ManyToOne(targetEntity="Categories")
-     * @ORM\JoinColumn(name="categories_category_id", referencedColumnName="category_id")
+     * Unidirectional - Many-To-One
+     * 
+     * @ORM\ManyToOne(targetEntity="Category")
      * 
      * @var Category $category
      */
-    protected $category;
+    private $category;
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="post")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id")
+     * Bidirectional - Many posts are written by one user (OWNING SIDE)
+     * 
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
      * 
      * @var User $user
      */
-    protected $user;
+    private $user;
     /**
-     * @ORM\ManyToMany(targetEntity="Tags")
-     * @ORM\JoinTable(name="posts_tags",
-     *     joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="post_id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="tag_id")}
+     * Bidireccional: Many posts have many tags (OWNING SIDE)
+     * 
+     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\JoinTable(name="posts_have_tags",
+     *     joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
      * )
      * 
      * @var ArrayCollection $tags
      */
-    protected $tags;
+    private $tags;
 
     /**
      * Gets the id.
      * 
-     * @return integer The id
+     * @return string The id
      */
     public function getId() {
         return $this->id;
@@ -185,9 +189,9 @@ class Post {
     /**
      * Sets the user who created the post.
      * 
-     * @param Users $value The user
+     * @param User $value The user
      */
-    public function setUser(Users $value) {
+    public function setUser(User $value) {
         $this->user = $value;
     }
 
@@ -218,15 +222,6 @@ class Post {
     }
 
     /**
-     * Get postId
-     *
-     * @return integer $postId
-     */
-    public function getPostId() {
-        return $this->postId;
-    }
-
-    /**
      * Set createdAt
      *
      * @param datetime $createdAt
@@ -247,9 +242,9 @@ class Post {
     /**
      * Add tags
      *
-     * @param Company\BlogBundle\Entity\Tags $tags
+     * @param Company\BlogBundle\Entity\Tag $tags
      */
-    public function addTags(\Company\BlogBundle\Entity\Tags $tags) {
+    public function addTags(\Company\BlogBundle\Entity\Tag $tags) {
         $this->tags[] = $tags;
     }
 

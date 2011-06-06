@@ -7,7 +7,7 @@ security:
 
     providers:
         main:
-            entity: { class: BlogBundle:User, property: username }
+            entity: { class: CompanyBlogBundle:User, property: username }
 
     firewalls:
         main:
